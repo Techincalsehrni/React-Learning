@@ -1,0 +1,69 @@
+React -> 1. React+dom = for website   2. React+ Native = for mobile apps.
+
+
+go to project for here
+Method- 1 by creat app
+######## It is not recommended as it takes long time make process slow 
+To creat react app we execute comman -> npx create-react-app 01basicreact [but it will take longer time]
+after above command execution there will be a many folders fetched. 1st entry point is "pacakage.json"
+########
+-> cd 01basicreact
+-> npx run start   // IT will open react in browser where we can go to to view page source , in npm run start we are running start scipt available in package.json 
+-> npx run build  // It will create a build folder which involves a static folder with content file  like html , css, js , in npm run build we are running build scipt available in package.json 
+
+
+Method-2 by vite 
+to create project  open command at root level
+-> npm create vite@latest -> then choose project name , package name and framework.
+
+### difrence b/w 1 and 2 method is that in 2 method we don't get node modules so whenever we don't have node modules folder we can download it by using command 
+-> npm i  [all required pacakage will be downloaded]
+// after installing node modules go to package.json and see there is script obj with dev value so for making project further.
+-> npm run dev -> will give a url open it. 
+// I get url but after cliking it there was an error so I asked chatgpt and it suggest to clear cache by doing fillowing :
+//rm -rf node_modules
+// npm install
+// npm run dev
+
+
+###############################
+1.The createRoot create's its own DOM and then compare it with the web browser's DOM and only update those components which are actually updated.
+2.But the browser removes the whole DOM and then recrates the whole DOM with the updated values this is called reload.
+3. However virtual DOM tracks whole DOM like a tree like structure and updates only those values which were only changed.
+4. But some values depends on network call so if we update a value it might get update immediately via a network call.
+5. So we will have to update it again. To avoid this overhead we can drop the updation calls for the immediate value update.
+6. The current algo used by the React is called the React Fibre algo.
+7. The algo react uses to differentiate updated virtual dom and previous dom  through create root is called reconciliation.
+8. Reconciliation is the algo behind what popularly known as the Virtual-DOM.
+9.In UI it is not necessary for every update to be applied immediately.
+10. So to avoid the immeediately updates, React Fibre helps to pause work, abort it, assign prorities, reuse previously completed work.
+
+
+
+################################
+React props -: to send data from one component to another.
+
+Props are sent inside the component brackets.
+eg. <Card channel = "chaiaurcode"/> 
+1 Always use curly brackets for a variable { variableName } to send it as props.
+Props can be in any form but passed as a variable.
+eg. <Card username = "chaiaurcode"/> 
+eg. <Card object = "myobject"/> 
+eg. <Card array = "myarray"/> 
+
+2 props send the data in the object form to the component.
+so to access ->
+                   props.properties or {properties ="defaultValue if props doesn't receive any value"}
+eg.props.username
+
+
+#########################
+When we write setCounter(counter+1) multiple times it is updated only once because in the onclick handler of that render, even after calling setCounter(counter + 1) multiple times the value of the counter is 15, because after our event handler finishes, then React re-renders the component in batch. 
+where
+when we use callback() function inside setterMethod() because the settermethod() returns a updatedvar which is accepted by callback is modified one that's why we are able to increment the variable 4 times.
+setCounter(prevCounter => prevCounter +1)
+
+
+#################
+The on click method in React expects a function reference
+You can't directly pass parameters inside the function, instead, you need to pass it as a reference or use arrow function syntax
